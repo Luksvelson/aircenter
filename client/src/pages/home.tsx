@@ -6,6 +6,7 @@ import CategorySection from "@/components/CategorySection";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import TrustSection from "@/components/TrustSection";
 import ContactSection from "@/components/ContactSection";
+import ServicesSection from "@/components/ServicesSection";
 import Footer from "@/components/Footer";
 import ProductDetailModal from "@/components/ProductDetailModal";
 import type { Product } from "@/components/ProductCard";
@@ -119,6 +120,8 @@ export default function HomePage() {
         />
         
         <TrustSection />
+        
+        <ServicesSection />
         
         <div id="contact">
           <ContactSection />
