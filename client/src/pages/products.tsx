@@ -1,0 +1,245 @@
+import { useState, useEffect } from "react";
+import { useLocation, useSearch } from "wouter";
+import Header from "@/components/Header";
+import FilterSidebar from "@/components/FilterSidebar";
+import ProductGrid from "@/components/ProductGrid";
+import ProductDetailModal from "@/components/ProductDetailModal";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Search, SlidersHorizontal } from "lucide-react";
+import type { Product } from "@/components/ProductCard";
+
+import productImage1 from "@assets/generated_images/air_compressor_product_shot.png";
+import productImage2 from "@assets/generated_images/piston_compressor_product.png";
+import productImage3 from "@assets/generated_images/rotary_screw_compressor.png";
+import productImage4 from "@assets/generated_images/portable_air_compressor.png";
+import productImage5 from "@assets/generated_images/silent_air_compressor.png";
+import productImage6 from "@assets/generated_images/high-pressure_compressor.png";
+
+// todo: remove mock functionality
+const allProducts: Product[] = [
+  {
+    id: "1",
+    name: "ProAir 5000",
+    model: "PA-5000-V",
+    image: productImage1,
+    category: "Piston Compressor",
+    price: 2499,
+    specs: { cfm: "18.5", psi: "175", hp: "5.0", tank: "80 gal" },
+    featured: true,
+  },
+  {
+    id: "2",
+    name: "SilentPro 3000",
+    model: "SP-3000-Q",
+    image: productImage5,
+    category: "Silent Compressor",
+    price: 1899,
+    specs: { cfm: "12.0", psi: "150", hp: "3.0", tank: "60 gal" },
+  },
+  {
+    id: "3",
+    name: "RotaryMax 7500",
+    model: "RM-7500-RS",
+    image: productImage3,
+    category: "Rotary Screw",
+    price: 5499,
+    specs: { cfm: "28.0", psi: "175", hp: "7.5", tank: "120 gal" },
+    featured: true,
+  },
+  {
+    id: "4",
+    name: "PortaMaster 2000",
+    model: "PM-2000-P",
+    image: productImage4,
+    category: "Portable",
+    price: 899,
+    specs: { cfm: "6.5", psi: "135", hp: "2.0", tank: "20 gal" },
+  },
+  {
+    id: "5",
+    name: "HighForce 10K",
+    model: "HF-10K-HP",
+    image: productImage6,
+    category: "High Pressure",
+    price: 7999,
+    specs: { cfm: "35.0", psi: "250", hp: "10.0", tank: "200 gal" },
+    featured: true,
+  },
+  {
+    id: "6",
+    name: "IndustrialPro 6000",
+    model: "IP-6000-I",
+    image: productImage2,
+    category: "Piston Compressor",
+    price: 3299,
+    specs: { cfm: "22.0", psi: "175", hp: "6.0", tank: "100 gal" },
+  },
+  {
+    id: "7",
+    name: "QuietAir 4000",
+    model: "QA-4000-S",
+    image: productImage5,
+    category: "Silent Compressor",
+    price: 2199,
+    specs: { cfm: "15.0", psi: "165", hp: "4.0", tank: "70 gal" },
+  },
+  {
+    id: "8",
+    name: "MobilePro 1500",
+    model: "MP-1500-M",
+    image: productImage4,
+    category: "Portable",
+    price: 649,
+    specs: { cfm: "4.5", psi: "125", hp: "1.5", tank: "10 gal" },
+  },
+  {
+    id: "9",
+    name: "RotaryElite 5000",
+    model: "RE-5000-RS",
+    image: productImage3,
+    category: "Rotary Screw",
+    price: 4299,
+    specs: { cfm: "20.0", psi: "175", hp: "5.0", tank: "80 gal" },
+  },
+];
+
+export default function ProductsPage() {
+  const [scrolled, setScrolled] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortBy, setSortBy] = useState("featured");
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const searchString = useSearch();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleViewDetails = (product: Product) => {
+    setSelectedProduct(product);
+    setModalOpen(true);
+  };
+
+  const filteredProducts = allProducts
+    .filter((product) => {
+      if (searchQuery) {
+        const query = searchQuery.toLowerCase();
+        return (
+          product.name.toLowerCase().includes(query) ||
+          product.model.toLowerCase().includes(query) ||
+          product.category.toLowerCase().includes(query)
+        );
+      }
+      return true;
+    })
+    .sort((a, b) => {
+      switch (sortBy) {
+        case "price-low":
+          return a.price - b.price;
+        case "price-high":
+          return b.price - a.price;
+        case "name":
+          return a.name.localeCompare(b.name);
+        case "featured":
+        default:
+          return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
+      }
+    });
+
+  return (
+    <div className="min-h-screen bg-background" data-testid="page-products">
+      <Header scrolled={scrolled} />
+
+      <main className="pt-20 md:pt-24">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-8">
+          <div className="mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2" data-testid="text-products-title">
+              All Products
+            </h1>
+            <p className="text-muted-foreground">
+              {filteredProducts.length} products available
+            </p>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-8">
+            <div className="hidden lg:block lg:w-64 shrink-0">
+              <div className="sticky top-24">
+                <FilterSidebar />
+              </div>
+            </div>
+
+            <div className="flex-1">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6">
+                <div className="relative flex-1">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    type="search"
+                    placeholder="Search products..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-9"
+                    data-testid="input-search-products"
+                  />
+                </div>
+
+                <div className="flex gap-2">
+                  <Sheet open={mobileFiltersOpen} onOpenChange={setMobileFiltersOpen}>
+                    <SheetTrigger asChild className="lg:hidden">
+                      <Button variant="outline" data-testid="button-mobile-filters">
+                        <SlidersHorizontal className="h-4 w-4 mr-2" />
+                        Filters
+                      </Button>
+                    </SheetTrigger>
+                    <SheetContent side="left" className="w-80 overflow-y-auto">
+                      <div className="mt-6">
+                        <FilterSidebar />
+                      </div>
+                    </SheetContent>
+                  </Sheet>
+
+                  <Select value={sortBy} onValueChange={setSortBy}>
+                    <SelectTrigger className="w-[180px]" data-testid="select-sort">
+                      <SelectValue placeholder="Sort by" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="featured">Featured</SelectItem>
+                      <SelectItem value="price-low">Price: Low to High</SelectItem>
+                      <SelectItem value="price-high">Price: High to Low</SelectItem>
+                      <SelectItem value="name">Name</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <ProductGrid products={filteredProducts} onViewDetails={handleViewDetails} />
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+
+      <ProductDetailModal
+        product={selectedProduct}
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+      />
+    </div>
+  );
+}
