@@ -16,10 +16,10 @@ export default function FeaturedProducts({ products, onViewAll, onViewDetails }:
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 md:mb-12">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-2" data-testid="text-featured-title">
-              Featured Products
+              Produtos em Destaque
             </h2>
             <p className="text-muted-foreground max-w-xl">
-              Discover our most popular air compressors, trusted by professionals worldwide.
+              Descubra nossos compressores de ar mais populares, confiados por profissionais em todo o mundo.
             </p>
           </div>
           <Button
@@ -30,7 +30,7 @@ export default function FeaturedProducts({ products, onViewAll, onViewDetails }:
             }}
             data-testid="button-view-all-products"
           >
-            View All Products
+            Ver Todos os Produtos
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

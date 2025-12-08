@@ -11,36 +11,36 @@ import highPressureImage from "@assets/generated_images/high-pressure_compressor
 const categories = [
   {
     id: "piston",
-    name: "Piston Compressors",
-    description: "Traditional reciprocating design for versatile applications",
+    name: "Compressores a Pistão",
+    description: "Design alternativo tradicional para aplicações versáteis",
     image: pistonImage,
     href: "/products?type=piston",
   },
   {
     id: "rotary",
-    name: "Rotary Screw",
-    description: "Continuous duty for high-demand industrial use",
+    name: "Parafuso Rotativo",
+    description: "Operação contínua para uso industrial de alta demanda",
     image: rotaryImage,
     href: "/products?type=rotary",
   },
   {
     id: "portable",
-    name: "Portable Units",
-    description: "Mobile solutions for jobsite and field work",
+    name: "Unidades Portáteis",
+    description: "Soluções móveis para canteiros de obras e trabalho de campo",
     image: portableImage,
     href: "/products?type=portable",
   },
   {
     id: "silent",
-    name: "Silent Compressors",
-    description: "Low-noise operation for sensitive environments",
+    name: "Compressores Silenciosos",
+    description: "Operação com baixo ruído para ambientes sensíveis",
     image: silentImage,
     href: "/products?type=silent",
   },
   {
     id: "high-pressure",
-    name: "High Pressure",
-    description: "Specialized units for demanding applications",
+    name: "Alta Pressão",
+    description: "Unidades especializadas para aplicações exigentes",
     image: highPressureImage,
     href: "/products?type=high-pressure",
   },
@@ -52,11 +52,11 @@ export default function CategorySection() {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" data-testid="text-category-title">
-            Browse by Category
+            Navegue por Categoria
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Find the perfect compressor for your needs. From small portable units 
-            to industrial-grade equipment.
+            Encontre o compressor perfeito para suas necessidades. De pequenas unidades 
+            portáteis a equipamentos de nível industrial.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ export default function CategorySection() {
                     {category.description}
                   </p>
                   <span className="inline-flex items-center text-xs text-primary font-medium">
-                    Browse
+                    Ver
                     <ArrowRight className="h-3 w-3 ml-1 transition-transform group-hover:translate-x-1" />
                   </span>
                 </CardContent>

@@ -32,9 +32,9 @@ const allProducts: Product[] = [
     name: "ProAir 5000",
     model: "PA-5000-V",
     image: productImage1,
-    category: "Piston Compressor",
-    price: 2499,
-    specs: { cfm: "18.5", psi: "175", hp: "5.0", tank: "80 gal" },
+    category: "Compressor a Pistão",
+    price: 12499,
+    specs: { cfm: "18.5", psi: "175", hp: "5.0", tank: "300L" },
     featured: true,
   },
   {
@@ -42,18 +42,18 @@ const allProducts: Product[] = [
     name: "SilentPro 3000",
     model: "SP-3000-Q",
     image: productImage5,
-    category: "Silent Compressor",
-    price: 1899,
-    specs: { cfm: "12.0", psi: "150", hp: "3.0", tank: "60 gal" },
+    category: "Compressor Silencioso",
+    price: 9499,
+    specs: { cfm: "12.0", psi: "150", hp: "3.0", tank: "230L" },
   },
   {
     id: "3",
     name: "RotaryMax 7500",
     model: "RM-7500-RS",
     image: productImage3,
-    category: "Rotary Screw",
-    price: 5499,
-    specs: { cfm: "28.0", psi: "175", hp: "7.5", tank: "120 gal" },
+    category: "Parafuso Rotativo",
+    price: 27499,
+    specs: { cfm: "28.0", psi: "175", hp: "7.5", tank: "450L" },
     featured: true,
   },
   {
@@ -61,18 +61,18 @@ const allProducts: Product[] = [
     name: "PortaMaster 2000",
     model: "PM-2000-P",
     image: productImage4,
-    category: "Portable",
-    price: 899,
-    specs: { cfm: "6.5", psi: "135", hp: "2.0", tank: "20 gal" },
+    category: "Portátil",
+    price: 4499,
+    specs: { cfm: "6.5", psi: "135", hp: "2.0", tank: "75L" },
   },
   {
     id: "5",
     name: "HighForce 10K",
     model: "HF-10K-HP",
     image: productImage6,
-    category: "High Pressure",
-    price: 7999,
-    specs: { cfm: "35.0", psi: "250", hp: "10.0", tank: "200 gal" },
+    category: "Alta Pressão",
+    price: 39999,
+    specs: { cfm: "35.0", psi: "250", hp: "10.0", tank: "750L" },
     featured: true,
   },
   {
@@ -80,36 +80,36 @@ const allProducts: Product[] = [
     name: "IndustrialPro 6000",
     model: "IP-6000-I",
     image: productImage2,
-    category: "Piston Compressor",
-    price: 3299,
-    specs: { cfm: "22.0", psi: "175", hp: "6.0", tank: "100 gal" },
+    category: "Compressor a Pistão",
+    price: 16499,
+    specs: { cfm: "22.0", psi: "175", hp: "6.0", tank: "380L" },
   },
   {
     id: "7",
     name: "QuietAir 4000",
     model: "QA-4000-S",
     image: productImage5,
-    category: "Silent Compressor",
-    price: 2199,
-    specs: { cfm: "15.0", psi: "165", hp: "4.0", tank: "70 gal" },
+    category: "Compressor Silencioso",
+    price: 10999,
+    specs: { cfm: "15.0", psi: "165", hp: "4.0", tank: "265L" },
   },
   {
     id: "8",
     name: "MobilePro 1500",
     model: "MP-1500-M",
     image: productImage4,
-    category: "Portable",
-    price: 649,
-    specs: { cfm: "4.5", psi: "125", hp: "1.5", tank: "10 gal" },
+    category: "Portátil",
+    price: 3249,
+    specs: { cfm: "4.5", psi: "125", hp: "1.5", tank: "40L" },
   },
   {
     id: "9",
     name: "RotaryElite 5000",
     model: "RE-5000-RS",
     image: productImage3,
-    category: "Rotary Screw",
-    price: 4299,
-    specs: { cfm: "20.0", psi: "175", hp: "5.0", tank: "80 gal" },
+    category: "Parafuso Rotativo",
+    price: 21499,
+    specs: { cfm: "20.0", psi: "175", hp: "5.0", tank: "300L" },
   },
 ];
 
@@ -170,10 +170,10 @@ export default function ProductsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-8">
           <div className="mb-8">
             <h1 className="text-3xl md:text-4xl font-bold mb-2" data-testid="text-products-title">
-              All Products
+              Todos os Produtos
             </h1>
             <p className="text-muted-foreground">
-              {filteredProducts.length} products available
+              {filteredProducts.length} produtos disponíveis
             </p>
           </div>
 
@@ -190,7 +190,7 @@ export default function ProductsPage() {
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
                     type="search"
-                    placeholder="Search products..."
+                    placeholder="Buscar produtos..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-9"
@@ -203,7 +203,7 @@ export default function ProductsPage() {
                     <SheetTrigger asChild className="lg:hidden">
                       <Button variant="outline" data-testid="button-mobile-filters">
                         <SlidersHorizontal className="h-4 w-4 mr-2" />
-                        Filters
+                        Filtros
                       </Button>
                     </SheetTrigger>
                     <SheetContent side="left" className="w-80 overflow-y-auto">
@@ -215,13 +215,13 @@ export default function ProductsPage() {
 
                   <Select value={sortBy} onValueChange={setSortBy}>
                     <SelectTrigger className="w-[180px]" data-testid="select-sort">
-                      <SelectValue placeholder="Sort by" />
+                      <SelectValue placeholder="Ordenar por" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="featured">Featured</SelectItem>
-                      <SelectItem value="price-low">Price: Low to High</SelectItem>
-                      <SelectItem value="price-high">Price: High to Low</SelectItem>
-                      <SelectItem value="name">Name</SelectItem>
+                      <SelectItem value="featured">Em Destaque</SelectItem>
+                      <SelectItem value="price-low">Preço: Menor para Maior</SelectItem>
+                      <SelectItem value="price-high">Preço: Maior para Menor</SelectItem>
+                      <SelectItem value="name">Nome</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

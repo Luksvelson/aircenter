@@ -19,11 +19,11 @@ export default function Hero({ onBrowseProducts, onRequestQuote }: HeroProps) {
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-32">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" data-testid="text-hero-title">
-            Industrial Air Solutions for Every Need
+            Soluções Industriais em Ar Comprimido
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8" data-testid="text-hero-subtitle">
-            Premium air compressors engineered for performance, reliability, and efficiency. 
-            From small workshops to large industrial facilities.
+            Compressores de ar de alta qualidade projetados para desempenho, confiabilidade e eficiência. 
+            De pequenas oficinas a grandes instalações industriais.
           </p>
           
           <div className="flex flex-wrap gap-4 mb-12">
@@ -35,7 +35,7 @@ export default function Hero({ onBrowseProducts, onRequestQuote }: HeroProps) {
               }}
               data-testid="button-browse-products"
             >
-              Browse Products
+              Ver Produtos
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
@@ -48,22 +48,22 @@ export default function Hero({ onBrowseProducts, onRequestQuote }: HeroProps) {
               }}
               data-testid="button-hero-quote"
             >
-              Request a Quote
+              Solicitar Orçamento
             </Button>
           </div>
 
           <div className="flex flex-wrap gap-6 md:gap-8">
             <div className="flex items-center gap-2 text-white/80">
               <Shield className="h-5 w-5 text-primary" />
-              <span className="text-sm">5-Year Warranty</span>
+              <span className="text-sm">Garantia de 5 Anos</span>
             </div>
             <div className="flex items-center gap-2 text-white/80">
               <Award className="h-5 w-5 text-primary" />
-              <span className="text-sm">ISO Certified</span>
+              <span className="text-sm">Certificado ISO</span>
             </div>
             <div className="flex items-center gap-2 text-white/80">
               <Truck className="h-5 w-5 text-primary" />
-              <span className="text-sm">Free Shipping</span>
+              <span className="text-sm">Frete Grátis</span>
             </div>
           </div>
         </div>

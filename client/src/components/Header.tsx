@@ -11,20 +11,20 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const categories = [
-  { name: "Piston Compressors", href: "/products?type=piston" },
-  { name: "Rotary Screw", href: "/products?type=rotary" },
-  { name: "Portable Units", href: "/products?type=portable" },
-  { name: "Silent Compressors", href: "/products?type=silent" },
-  { name: "High Pressure", href: "/products?type=high-pressure" },
+  { name: "Compressores a Pistão", href: "/products?type=piston" },
+  { name: "Parafuso Rotativo", href: "/products?type=rotary" },
+  { name: "Unidades Portáteis", href: "/products?type=portable" },
+  { name: "Compressores Silenciosos", href: "/products?type=silent" },
+  { name: "Alta Pressão", href: "/products?type=high-pressure" },
 ];
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Products", href: "/products" },
-  { name: "Services", href: "/#services" },
-  { name: "About", href: "/#about" },
-  { name: "Location", href: "/#location" },
-  { name: "Contact", href: "/#contact" },
+  { name: "Início", href: "/" },
+  { name: "Produtos", href: "/products" },
+  { name: "Serviços", href: "/#services" },
+  { name: "Sobre", href: "/#about" },
+  { name: "Localização", href: "/#location" },
+  { name: "Contato", href: "/#contact" },
 ];
 
 interface HeaderProps {
@@ -55,7 +55,7 @@ export default function Header({ scrolled = false }: HeaderProps) {
 
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              link.name === "Products" ? (
+              link.name === "Produtos" ? (
                 <DropdownMenu key={link.name}>
                   <DropdownMenuTrigger asChild>
                     <Button
@@ -65,13 +65,13 @@ export default function Header({ scrolled = false }: HeaderProps) {
                       } ${location.startsWith("/products") ? "bg-white/10" : ""}`}
                       data-testid="button-products-dropdown"
                     >
-                      Products
+                      Produtos
                       <ChevronDown className="h-4 w-4" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="center" className="w-48">
                     <DropdownMenuItem asChild>
-                      <Link href="/products" data-testid="link-all-products">All Products</Link>
+                      <Link href="/products" data-testid="link-all-products">Todos os Produtos</Link>
                     </DropdownMenuItem>
                     {categories.map((cat) => (
                       <DropdownMenuItem key={cat.name} asChild>
@@ -105,8 +105,8 @@ export default function Header({ scrolled = false }: HeaderProps) {
               data-testid="button-request-quote"
             >
               <Phone className="h-4 w-4 mr-2" />
-              <span className="hidden sm:inline">Request Quote</span>
-              <span className="sm:hidden">Quote</span>
+              <span className="hidden sm:inline">Solicitar Orçamento</span>
+              <span className="sm:hidden">Orçamento</span>
             </Button>
 
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -134,7 +134,7 @@ export default function Header({ scrolled = false }: HeaderProps) {
                     </Link>
                   ))}
                   <div className="border-t my-2 pt-2">
-                    <p className="text-sm text-muted-foreground px-4 mb-2">Categories</p>
+                    <p className="text-sm text-muted-foreground px-4 mb-2">Categorias</p>
                     {categories.map((cat) => (
                       <Link key={cat.name} href={cat.href} onClick={() => setMobileOpen(false)}>
                         <Button

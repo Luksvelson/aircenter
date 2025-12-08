@@ -6,40 +6,40 @@ const services = [
   {
     id: "hydrostatic-test",
     icon: Gauge,
-    title: "Hydrostatic Test",
+    title: "Teste Hidrostático",
     description:
-      "Comprehensive pressure testing to verify the integrity and safety of your air compressor tanks and vessels. Our certified technicians perform thorough inspections following industry standards and regulations.",
+      "Teste de pressão abrangente para verificar a integridade e segurança dos tanques e vasos de pressão do seu compressor de ar. Nossos técnicos certificados realizam inspeções completas seguindo normas e regulamentações do setor.",
     features: [
-      "Certified pressure testing",
-      "Safety compliance verification",
-      "Detailed inspection reports",
-      "Tank integrity assessment",
+      "Teste de pressão certificado",
+      "Verificação de conformidade de segurança",
+      "Relatórios detalhados de inspeção",
+      "Avaliação de integridade do tanque",
     ],
   },
   {
     id: "maintenance",
     icon: Wrench,
-    title: "Preventive and Corrective Maintenance",
+    title: "Manutenção Preventiva e Corretiva",
     description:
-      "Keep your air compressors running at peak performance with our expert maintenance services. We offer scheduled preventive care and rapid corrective repairs to minimize downtime.",
+      "Mantenha seus compressores de ar funcionando com desempenho máximo com nossos serviços especializados de manutenção. Oferecemos cuidados preventivos programados e reparos corretivos rápidos para minimizar o tempo de inatividade.",
     features: [
-      "Scheduled maintenance plans",
-      "Emergency repair services",
-      "Component replacement",
-      "Performance optimization",
+      "Planos de manutenção programada",
+      "Serviços de reparo de emergência",
+      "Substituição de componentes",
+      "Otimização de desempenho",
     ],
   },
   {
     id: "piping",
     icon: PipetteIcon,
-    title: "Air Piping Networks Installation",
+    title: "Instalação de Redes de Tubulação de Ar",
     description:
-      "Professional design and installation of compressed air distribution systems. We create efficient piping networks tailored to your facility's specific requirements and future expansion needs.",
+      "Projeto e instalação profissional de sistemas de distribuição de ar comprimido. Criamos redes de tubulação eficientes adaptadas às necessidades específicas da sua instalação e possibilidades de expansão futura.",
     features: [
-      "Custom system design",
-      "Professional installation",
-      "Leak-free connections",
-      "Capacity planning",
+      "Projeto de sistema personalizado",
+      "Instalação profissional",
+      "Conexões sem vazamentos",
+      "Planejamento de capacidade",
     ],
   },
 ];
@@ -54,11 +54,11 @@ export default function ServicesSection({ onRequestService }: ServicesSectionPro
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" data-testid="text-services-title">
-            Our Services
+            Nossos Serviços
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Beyond equipment sales, we provide comprehensive services to keep your 
-            compressed air systems running safely and efficiently.
+            Além da venda de equipamentos, oferecemos serviços completos para manter seus 
+            sistemas de ar comprimido funcionando com segurança e eficiência.
           </p>
         </div>
 
@@ -101,7 +101,7 @@ export default function ServicesSection({ onRequestService }: ServicesSectionPro
                   }}
                   data-testid={`button-request-${service.id}`}
                 >
-                  Request Service
+                  Solicitar Serviço
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </CardContent>

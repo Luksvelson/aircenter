@@ -11,18 +11,18 @@ import {
 import { ChevronDown, RotateCcw } from "lucide-react";
 
 const compressorTypes = [
-  { id: "piston", label: "Piston Compressors" },
-  { id: "rotary", label: "Rotary Screw" },
-  { id: "portable", label: "Portable Units" },
-  { id: "silent", label: "Silent Compressors" },
-  { id: "high-pressure", label: "High Pressure" },
+  { id: "piston", label: "Compressores a Pistão" },
+  { id: "rotary", label: "Parafuso Rotativo" },
+  { id: "portable", label: "Unidades Portáteis" },
+  { id: "silent", label: "Compressores Silenciosos" },
+  { id: "high-pressure", label: "Alta Pressão" },
 ];
 
 const tankSizes = [
-  { id: "small", label: "Under 30 gal" },
-  { id: "medium", label: "30-60 gal" },
-  { id: "large", label: "60-100 gal" },
-  { id: "xlarge", label: "Over 100 gal" },
+  { id: "small", label: "Menos de 100L" },
+  { id: "medium", label: "100-250L" },
+  { id: "large", label: "250-400L" },
+  { id: "xlarge", label: "Acima de 400L" },
 ];
 
 interface Filters {
@@ -42,7 +42,7 @@ export default function FilterSidebar({ filters, onFiltersChange }: FilterSideba
     filters || {
       types: [],
       tankSizes: [],
-      priceRange: [0, 10000],
+      priceRange: [0, 50000],
       cfmRange: [0, 100],
     }
   );
@@ -63,7 +63,7 @@ export default function FilterSidebar({ filters, onFiltersChange }: FilterSideba
     const defaultFilters: Filters = {
       types: [],
       tankSizes: [],
-      priceRange: [0, 10000],
+      priceRange: [0, 50000],
       cfmRange: [0, 100],
     };
     setLocalFilters(defaultFilters);
@@ -74,7 +74,7 @@ export default function FilterSidebar({ filters, onFiltersChange }: FilterSideba
   return (
     <aside className="w-full lg:w-64 space-y-6" data-testid="filter-sidebar">
       <div className="flex items-center justify-between gap-4">
-        <h2 className="font-semibold text-lg">Filters</h2>
+        <h2 className="font-semibold text-lg">Filtros</h2>
         <Button
           variant="ghost"
           size="sm"
@@ -83,13 +83,13 @@ export default function FilterSidebar({ filters, onFiltersChange }: FilterSideba
           data-testid="button-reset-filters"
         >
           <RotateCcw className="h-4 w-4 mr-1" />
-          Reset
+          Limpar
         </Button>
       </div>
 
       <Collapsible defaultOpen>
         <CollapsibleTrigger className="flex items-center justify-between gap-2 w-full py-2 font-medium" data-testid="trigger-type">
-          Compressor Type
+          Tipo de Compressor
           <ChevronDown className="h-4 w-4" />
         </CollapsibleTrigger>
         <CollapsibleContent className="space-y-3 pt-2">
@@ -113,7 +113,7 @@ export default function FilterSidebar({ filters, onFiltersChange }: FilterSideba
 
       <Collapsible defaultOpen>
         <CollapsibleTrigger className="flex items-center justify-between gap-2 w-full py-2 font-medium" data-testid="trigger-tank">
-          Tank Size
+          Tamanho do Reservatório
           <ChevronDown className="h-4 w-4" />
         </CollapsibleTrigger>
         <CollapsibleContent className="space-y-3 pt-2">
@@ -137,30 +137,30 @@ export default function FilterSidebar({ filters, onFiltersChange }: FilterSideba
 
       <Collapsible defaultOpen>
         <CollapsibleTrigger className="flex items-center justify-between gap-2 w-full py-2 font-medium" data-testid="trigger-price">
-          Price Range
+          Faixa de Preço
           <ChevronDown className="h-4 w-4" />
         </CollapsibleTrigger>
         <CollapsibleContent className="pt-4 pb-2">
           <Slider
             value={localFilters.priceRange}
             min={0}
-            max={10000}
-            step={100}
+            max={50000}
+            step={500}
             onValueChange={(value) =>
               updateFilters({ priceRange: value as [number, number] })
             }
             data-testid="slider-price"
           />
           <div className="flex justify-between text-sm text-muted-foreground mt-2">
-            <span>${localFilters.priceRange[0].toLocaleString()}</span>
-            <span>${localFilters.priceRange[1].toLocaleString()}</span>
+            <span>R$ {localFilters.priceRange[0].toLocaleString('pt-BR')}</span>
+            <span>R$ {localFilters.priceRange[1].toLocaleString('pt-BR')}</span>
           </div>
         </CollapsibleContent>
       </Collapsible>
 
       <Collapsible defaultOpen>
         <CollapsibleTrigger className="flex items-center justify-between gap-2 w-full py-2 font-medium" data-testid="trigger-cfm">
-          CFM Rating
+          Classificação CFM
           <ChevronDown className="h-4 w-4" />
         </CollapsibleTrigger>
         <CollapsibleContent className="pt-4 pb-2">

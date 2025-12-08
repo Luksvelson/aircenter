@@ -29,8 +29,8 @@ export default function ContactSection() {
     e.preventDefault();
     console.log("Contact form submitted:", formData);
     toast({
-      title: "Message Sent",
-      description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
+      title: "Mensagem Enviada",
+      description: "Obrigado pelo seu contato. Retornaremos em até 24 horas.",
     });
     setFormData({
       name: "",
@@ -47,11 +47,11 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" data-testid="text-contact-title">
-            Get in Touch
+            Entre em Contato
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have questions about our products or need a custom solution? 
-            Our team of experts is ready to help.
+            Tem dúvidas sobre nossos produtos ou precisa de uma solução personalizada? 
+            Nossa equipe de especialistas está pronta para ajudar.
           </p>
         </div>
 
@@ -62,25 +62,25 @@ export default function ContactSection() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Full Name *</Label>
+                      <Label htmlFor="name">Nome Completo *</Label>
                       <Input
                         id="name"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="John Smith"
+                        placeholder="João Silva"
                         data-testid="input-contact-name"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email Address *</Label>
+                      <Label htmlFor="email">E-mail *</Label>
                       <Input
                         id="email"
                         type="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="john@company.com"
+                        placeholder="joao@empresa.com.br"
                         data-testid="input-contact-email"
                       />
                     </div>
@@ -88,55 +88,55 @@ export default function ContactSection() {
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
+                      <Label htmlFor="phone">Telefone</Label>
                       <Input
                         id="phone"
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="(555) 123-4567"
+                        placeholder="(11) 99999-9999"
                         data-testid="input-contact-phone"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="company">Company</Label>
+                      <Label htmlFor="company">Empresa</Label>
                       <Input
                         id="company"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        placeholder="Your Company Inc."
+                        placeholder="Sua Empresa Ltda."
                         data-testid="input-contact-company"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="inquiryType">Inquiry Type *</Label>
+                    <Label htmlFor="inquiryType">Tipo de Solicitação *</Label>
                     <Select
                       value={formData.inquiryType}
                       onValueChange={(value) => setFormData({ ...formData, inquiryType: value })}
                     >
                       <SelectTrigger data-testid="select-inquiry-type">
-                        <SelectValue placeholder="Select inquiry type" />
+                        <SelectValue placeholder="Selecione o tipo de solicitação" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="quote">Request a Quote</SelectItem>
-                        <SelectItem value="product">Product Information</SelectItem>
-                        <SelectItem value="support">Technical Support</SelectItem>
-                        <SelectItem value="parts">Parts & Service</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
+                        <SelectItem value="quote">Solicitar Orçamento</SelectItem>
+                        <SelectItem value="product">Informações sobre Produtos</SelectItem>
+                        <SelectItem value="support">Suporte Técnico</SelectItem>
+                        <SelectItem value="parts">Peças e Serviços</SelectItem>
+                        <SelectItem value="other">Outros</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message *</Label>
+                    <Label htmlFor="message">Mensagem *</Label>
                     <Textarea
                       id="message"
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell us about your requirements..."
+                      placeholder="Descreva suas necessidades..."
                       className="min-h-[120px]"
                       data-testid="textarea-contact-message"
                     />
@@ -144,7 +144,7 @@ export default function ContactSection() {
 
                   <Button type="submit" size="lg" className="w-full md:w-auto" data-testid="button-submit-contact">
                     <Send className="h-4 w-4 mr-2" />
-                    Send Message
+                    Enviar Mensagem
                   </Button>
                 </form>
               </CardContent>
@@ -159,11 +159,11 @@ export default function ContactSection() {
                     <Phone className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Call Us</h3>
+                    <h3 className="font-semibold mb-1">Ligue para Nós</h3>
                     <p className="text-muted-foreground text-sm mb-2">
-                      Speak with our sales team
+                      Fale com nossa equipe de vendas
                     </p>
-                    <p className="font-medium" data-testid="text-contact-phone">1-800-AIR-COMP</p>
+                    <p className="font-medium" data-testid="text-contact-phone">(11) 3000-0000</p>
                   </div>
                 </div>
               </CardContent>
@@ -176,11 +176,11 @@ export default function ContactSection() {
                     <Mail className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Email Us</h3>
+                    <h3 className="font-semibold mb-1">Envie um E-mail</h3>
                     <p className="text-muted-foreground text-sm mb-2">
-                      Get a response within 24 hours
+                      Resposta em até 24 horas
                     </p>
-                    <p className="font-medium" data-testid="text-contact-email">sales@airpro.com</p>
+                    <p className="font-medium" data-testid="text-contact-email">vendas@airpro.com.br</p>
                   </div>
                 </div>
               </CardContent>
@@ -193,12 +193,12 @@ export default function ContactSection() {
                     <Clock className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Business Hours</h3>
+                    <h3 className="font-semibold mb-1">Horário de Atendimento</h3>
                     <p className="text-muted-foreground text-sm">
-                      Mon - Fri: 8am - 6pm EST
+                      Seg - Sex: 08:00 - 18:00
                     </p>
                     <p className="text-muted-foreground text-sm">
-                      Sat: 9am - 2pm EST
+                      Sáb: 09:00 - 14:00
                     </p>
                   </div>
                 </div>

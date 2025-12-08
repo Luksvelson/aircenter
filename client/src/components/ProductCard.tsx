@@ -43,7 +43,7 @@ export default function ProductCard({ product, onViewDetails }: ProductCardProps
               className="absolute top-3 left-3"
               data-testid={`badge-featured-${product.id}`}
             >
-              Featured
+              Destaque
             </Badge>
           )}
         </div>
@@ -55,7 +55,7 @@ export default function ProductCard({ product, onViewDetails }: ProductCardProps
           <h3 className="font-semibold text-lg mb-1" data-testid={`text-product-name-${product.id}`}>
             {product.name}
           </h3>
-          <p className="text-sm text-muted-foreground mb-3">Model: {product.model}</p>
+          <p className="text-sm text-muted-foreground mb-3">Modelo: {product.model}</p>
           
           <ul className="text-sm space-y-1 mb-4 text-muted-foreground">
             <li className="flex justify-between">
@@ -67,18 +67,18 @@ export default function ProductCard({ product, onViewDetails }: ProductCardProps
               <span className="text-foreground">{product.specs.psi}</span>
             </li>
             <li className="flex justify-between">
-              <span>HP:</span>
+              <span>CV:</span>
               <span className="text-foreground">{product.specs.hp}</span>
             </li>
             <li className="flex justify-between">
-              <span>Tank:</span>
+              <span>Reservatório:</span>
               <span className="text-foreground">{product.specs.tank}</span>
             </li>
           </ul>
           
           <div className="flex items-center justify-between gap-4">
             <p className="text-xl font-bold text-primary" data-testid={`text-price-${product.id}`}>
-              ${product.price.toLocaleString()}
+              R$ {product.price.toLocaleString('pt-BR')}
             </p>
             <Button
               variant="outline"
@@ -90,7 +90,7 @@ export default function ProductCard({ product, onViewDetails }: ProductCardProps
               data-testid={`button-view-${product.id}`}
             >
               <Eye className="h-4 w-4 mr-2" />
-              Details
+              Detalhes
             </Button>
           </div>
         </div>

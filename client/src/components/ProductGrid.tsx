@@ -9,7 +9,7 @@ export default function ProductGrid({ products, onViewDetails }: ProductGridProp
   if (products.length === 0) {
     return (
       <div className="text-center py-16" data-testid="empty-products">
-        <p className="text-muted-foreground">No products found matching your criteria.</p>
+        <p className="text-muted-foreground">Nenhum produto encontrado com os critérios selecionados.</p>
       </div>
     );
   }

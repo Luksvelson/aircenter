@@ -2,18 +2,18 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Award, Truck, Headphones, CheckCircle2, Factory } from "lucide-react";
 
 const trustBadges = [
-  { icon: Shield, label: "5-Year Warranty", description: "Full coverage on all units" },
-  { icon: Award, label: "ISO 9001 Certified", description: "Quality management assured" },
-  { icon: Truck, label: "Free Shipping", description: "On orders over $1,000" },
-  { icon: Headphones, label: "24/7 Support", description: "Expert technicians on call" },
+  { icon: Shield, label: "Garantia de 5 Anos", description: "Cobertura total em todas as unidades" },
+  { icon: Award, label: "Certificado ISO 9001", description: "Gestão de qualidade assegurada" },
+  { icon: Truck, label: "Frete Grátis", description: "Em pedidos acima de R$ 5.000" },
+  { icon: Headphones, label: "Suporte 24/7", description: "Técnicos especializados de plantão" },
 ];
 
 // todo: remove mock functionality
 const stats = [
-  { value: "50,000+", label: "Units Sold" },
-  { value: "35+", label: "Years Experience" },
-  { value: "98%", label: "Customer Satisfaction" },
-  { value: "500+", label: "Business Partners" },
+  { value: "50.000+", label: "Unidades Vendidas" },
+  { value: "35+", label: "Anos de Experiência" },
+  { value: "98%", label: "Satisfação do Cliente" },
+  { value: "500+", label: "Parceiros Comerciais" },
 ];
 
 export default function TrustSection() {
@@ -22,11 +22,11 @@ export default function TrustSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" data-testid="text-trust-title">
-            Trusted by Industry Leaders
+            Confiança dos Líderes da Indústria
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Backed by decades of experience and a commitment to quality, 
-            we deliver reliable air compression solutions.
+            Com décadas de experiência e compromisso com a qualidade, 
+            entregamos soluções confiáveis em ar comprimido.
           </p>
         </div>
 
@@ -53,14 +53,14 @@ export default function TrustSection() {
 
         <div className="mt-16 grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <h3 className="text-2xl font-bold mb-4">Why Choose AirPro?</h3>
+            <h3 className="text-2xl font-bold mb-4">Por Que Escolher a AirPro?</h3>
             <ul className="space-y-3">
               {[
-                "Industry-leading efficiency ratings",
-                "Comprehensive parts availability",
-                "On-site installation services",
-                "Flexible financing options",
-                "Training and certification programs",
+                "Índices de eficiência líderes do mercado",
+                "Disponibilidade abrangente de peças",
+                "Serviços de instalação no local",
+                "Opções flexíveis de financiamento",
+                "Programas de treinamento e certificação",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
@@ -72,15 +72,15 @@ export default function TrustSection() {
           <Card className="bg-primary text-primary-foreground">
             <CardContent className="p-8">
               <Factory className="h-12 w-12 mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Industrial Solutions</h3>
+              <h3 className="text-2xl font-bold mb-2">Soluções Industriais</h3>
               <p className="text-primary-foreground/90 mb-4">
-                Need a custom solution for your facility? Our engineering team 
-                designs complete compressed air systems tailored to your requirements.
+                Precisa de uma solução personalizada para sua instalação? Nossa equipe de engenharia 
+                projeta sistemas completos de ar comprimido sob medida para suas necessidades.
               </p>
               <ul className="space-y-2 text-sm text-primary-foreground/80">
-                <li>Custom system design</li>
-                <li>Energy efficiency audits</li>
-                <li>Installation & commissioning</li>
+                <li>Projeto de sistemas personalizados</li>
+                <li>Auditorias de eficiência energética</li>
+                <li>Instalação e comissionamento</li>
               </ul>
             </CardContent>
           </Card>

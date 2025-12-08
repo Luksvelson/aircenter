@@ -29,7 +29,7 @@ export default function ProductDetailModal({
         <DialogHeader>
           <div className="flex items-start gap-2 flex-wrap">
             <DialogTitle className="text-2xl">{product.name}</DialogTitle>
-            {product.featured && <Badge>Featured</Badge>}
+            {product.featured && <Badge>Destaque</Badge>}
           </div>
         </DialogHeader>
 
@@ -46,7 +46,7 @@ export default function ProductDetailModal({
             <div className="flex gap-2">
               <Button variant="outline" size="sm" className="flex-1" data-testid="button-spec-sheet">
                 <FileText className="h-4 w-4 mr-2" />
-                Spec Sheet
+                Ficha Técnica
               </Button>
               <Button variant="outline" size="sm" className="flex-1" data-testid="button-manual">
                 <Download className="h-4 w-4 mr-2" />
@@ -59,41 +59,41 @@ export default function ProductDetailModal({
             <p className="text-sm text-muted-foreground uppercase tracking-wide mb-1">
               {product.category}
             </p>
-            <p className="text-muted-foreground mb-4">Model: {product.model}</p>
+            <p className="text-muted-foreground mb-4">Modelo: {product.model}</p>
 
             <p className="text-3xl font-bold text-primary mb-6" data-testid="text-modal-price">
-              ${product.price.toLocaleString()}
+              R$ {product.price.toLocaleString('pt-BR')}
             </p>
 
             <Separator className="mb-6" />
 
-            <h3 className="font-semibold mb-4">Specifications</h3>
+            <h3 className="font-semibold mb-4">Especificações</h3>
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div className="p-3 bg-muted/50 rounded-md">
-                <p className="text-xs text-muted-foreground uppercase">CFM Rating</p>
+                <p className="text-xs text-muted-foreground uppercase">Vazão CFM</p>
                 <p className="font-semibold">{product.specs.cfm} CFM</p>
               </div>
               <div className="p-3 bg-muted/50 rounded-md">
-                <p className="text-xs text-muted-foreground uppercase">Max PSI</p>
+                <p className="text-xs text-muted-foreground uppercase">Pressão Máx PSI</p>
                 <p className="font-semibold">{product.specs.psi} PSI</p>
               </div>
               <div className="p-3 bg-muted/50 rounded-md">
-                <p className="text-xs text-muted-foreground uppercase">Horsepower</p>
-                <p className="font-semibold">{product.specs.hp} HP</p>
+                <p className="text-xs text-muted-foreground uppercase">Potência</p>
+                <p className="font-semibold">{product.specs.hp} CV</p>
               </div>
               <div className="p-3 bg-muted/50 rounded-md">
-                <p className="text-xs text-muted-foreground uppercase">Tank Size</p>
+                <p className="text-xs text-muted-foreground uppercase">Reservatório</p>
                 <p className="font-semibold">{product.specs.tank}</p>
               </div>
             </div>
 
-            <h3 className="font-semibold mb-3">Features</h3>
+            <h3 className="font-semibold mb-3">Características</h3>
             <ul className="text-sm text-muted-foreground space-y-2 mb-6">
-              <li>Heavy-duty cast iron construction</li>
-              <li>Oil-lubricated pump for extended life</li>
-              <li>Thermal overload protection</li>
-              <li>Large capacity air filter</li>
-              <li>Easy-read pressure gauges</li>
+              <li>Construção robusta em ferro fundido</li>
+              <li>Bomba lubrificada a óleo para maior vida útil</li>
+              <li>Proteção térmica contra sobrecarga</li>
+              <li>Filtro de ar de alta capacidade</li>
+              <li>Manômetros de fácil leitura</li>
             </ul>
 
             <div className="space-y-3">
@@ -104,10 +104,10 @@ export default function ProductDetailModal({
                 data-testid="button-modal-quote"
               >
                 <Phone className="h-4 w-4 mr-2" />
-                Request a Quote
+                Solicitar Orçamento
               </Button>
               <p className="text-xs text-center text-muted-foreground">
-                Our team will respond within 24 hours
+                Nossa equipe responderá em até 24 horas
               </p>
             </div>
           </div>
