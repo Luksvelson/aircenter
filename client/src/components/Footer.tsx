@@ -5,12 +5,12 @@ import { Wind, Facebook, Twitter, Linkedin, Youtube, Mail, Phone, MapPin } from 
 import { SiInstagram } from "react-icons/si";
 import { useState } from "react";
 
-const productLinks = [
-  { name: "Compressores a Pistão", href: "/products?type=piston" },
-  { name: "Parafuso Rotativo", href: "/products?type=rotary" },
-  { name: "Unidades Portáteis", href: "/products?type=portable" },
-  { name: "Compressores Silenciosos", href: "/products?type=silent" },
-  { name: "Alta Pressão", href: "/products?type=high-pressure" },
+const produtoLinks = [
+  { name: "Compressores a Pistão", href: "/produtos?type=piston" },
+  { name: "Parafuso Rotativo", href: "/produtos?type=rotary" },
+  { name: "Unidades Portáteis", href: "/produtos?type=portable" },
+  { name: "Compressores Silenciosos", href: "/produtos?type=silent" },
+  { name: "Alta Pressão", href: "/produtos?type=high-pressure" },
 ];
 
 const supportLinks = [
@@ -44,10 +44,10 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4" data-testid="link-footer-logo">
               <Wind className="h-8 w-8 text-primary" />
-              <span className="font-bold text-xl">AirPro</span>
+              <span className="font-bold text-xl">AirCenter</span>
             </Link>
             <p className="text-background/70 text-sm mb-6">
-              Fornecedora líder de soluções em compressores de ar industriais desde 1985. 
+              Fornecedora líder de soluções em compressores de ar industriais no RJ desde 2005. 
               Equipamentos de qualidade com suporte especializado.
             </p>
             <div className="flex gap-2">
@@ -72,7 +72,7 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Produtos</h3>
             <ul className="space-y-2">
-              {productLinks.map((link) => (
+              {produtoLinks.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-background/70 hover:text-background text-sm transition-colors" data-testid={`link-footer-${link.name.toLowerCase().replace(/\s/g, "-")}`}>
                     {link.name}
@@ -100,15 +100,15 @@ export default function Footer() {
             <ul className="space-y-3 mb-6">
               <li className="flex items-start gap-2 text-sm text-background/70">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-                <span>Av. Industrial, 1234 - São Paulo, SP</span>
+                <span>Rua São Cristóvão, 793 - São Cristóvão, Rio de Janeiro - RJ</span>
               </li>
               <li className="flex items-center gap-2 text-sm text-background/70">
                 <Phone className="h-4 w-4 shrink-0" />
-                <span>(11) 3000-0000</span>
+                <span>(21) 3000-0000</span>
               </li>
               <li className="flex items-center gap-2 text-sm text-background/70">
                 <Mail className="h-4 w-4 shrink-0" />
-                <span>contato@airpro.com.br</span>
+                <span>contato@aircenter.com.br</span>
               </li>
             </ul>
             <form onSubmit={handleSubscribe} className="flex gap-2">
@@ -131,7 +131,7 @@ export default function Footer() {
       <div className="border-t border-background/10">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-background/60">
-            <p data-testid="text-copyright">2024 AirPro Compressores. Todos os direitos reservados.</p>
+            <p data-testid="text-copyright">2024 AirCenter Compressores. Todos os direitos reservados.</p>
             <div className="flex flex-wrap gap-4 md:gap-6">
               <Link href="/privacy" className="hover:text-background transition-colors" data-testid="link-privacy">Política de Privacidade</Link>
               <Link href="/terms" className="hover:text-background transition-colors" data-testid="link-terms">Termos de Uso</Link>

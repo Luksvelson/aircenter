@@ -3,30 +3,30 @@ import { useLocation } from "wouter";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import CategorySection from "@/components/CategorySection";
-import FeaturedProducts from "@/components/FeaturedProducts";
+import FeaturedProdutos from "@/components/FeaturedProdutos";
 import TrustSection from "@/components/TrustSection";
 import ContactSection from "@/components/ContactSection";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import LocationSection from "@/components/LocationSection";
 import Footer from "@/components/Footer";
-import ProductDetailModal from "@/components/ProductDetailModal";
-import type { Product } from "@/components/ProductCard";
+import ProdutoDetailModal from "@/components/ProdutoDetailModal";
+import type { Produto } from "@/components/ProdutoCard";
 
-import productImage1 from "@assets/generated_images/air_compressor_product_shot.png";
-import productImage2 from "@assets/generated_images/piston_compressor_product.png";
-import productImage3 from "@assets/generated_images/rotary_screw_compressor.png";
-import productImage4 from "@assets/generated_images/portable_air_compressor.png";
-import productImage5 from "@assets/generated_images/silent_air_compressor.png";
-import productImage6 from "@assets/generated_images/high-pressure_compressor.png";
+import produtoImage1 from "@assets/generated_images/air_compressor_produto_shot.png";
+import produtoImage2 from "@assets/generated_images/piston_compressor_produto.png";
+import produtoImage3 from "@assets/generated_images/rotary_screw_compressor.png";
+import produtoImage4 from "@assets/generated_images/portable_air_compressor.png";
+import produtoImage5 from "@assets/generated_images/silent_air_compressor.png";
+import produtoImage6 from "@assets/generated_images/high-pressure_compressor.png";
 
 // todo: remove mock functionality
-const featuredProducts: Product[] = [
+const featuredProdutos: Produto[] = [
   {
     id: "1",
     name: "ProAir 5000",
     model: "PA-5000-V",
-    image: productImage1,
+    image: produtoImage1,
     category: "Compressor a Pistão",
     price: 12499,
     specs: { cfm: "18.5", psi: "175", hp: "5.0", tank: "300L" },
@@ -36,7 +36,7 @@ const featuredProducts: Product[] = [
     id: "2",
     name: "SilentPro 3000",
     model: "SP-3000-Q",
-    image: productImage5,
+    image: produtoImage5,
     category: "Compressor Silencioso",
     price: 9499,
     specs: { cfm: "12.0", psi: "150", hp: "3.0", tank: "230L" },
@@ -45,7 +45,7 @@ const featuredProducts: Product[] = [
     id: "3",
     name: "RotaryMax 7500",
     model: "RM-7500-RS",
-    image: productImage3,
+    image: produtoImage3,
     category: "Parafuso Rotativo",
     price: 27499,
     specs: { cfm: "28.0", psi: "175", hp: "7.5", tank: "450L" },
@@ -55,7 +55,7 @@ const featuredProducts: Product[] = [
     id: "4",
     name: "PortaMaster 2000",
     model: "PM-2000-P",
-    image: productImage4,
+    image: produtoImage4,
     category: "Portátil",
     price: 4499,
     specs: { cfm: "6.5", psi: "135", hp: "2.0", tank: "75L" },
@@ -64,7 +64,7 @@ const featuredProducts: Product[] = [
     id: "5",
     name: "HighForce 10K",
     model: "HF-10K-HP",
-    image: productImage6,
+    image: produtoImage6,
     category: "Alta Pressão",
     price: 39999,
     specs: { cfm: "35.0", psi: "250", hp: "10.0", tank: "750L" },
@@ -74,7 +74,7 @@ const featuredProducts: Product[] = [
     id: "6",
     name: "IndustrialPro 6000",
     model: "IP-6000-I",
-    image: productImage2,
+    image: produtoImage2,
     category: "Compressor a Pistão",
     price: 16499,
     specs: { cfm: "22.0", psi: "175", hp: "6.0", tank: "380L" },
@@ -84,7 +84,7 @@ const featuredProducts: Product[] = [
 export default function HomePage() {
   const [, setLocation] = useLocation();
   const [scrolled, setScrolled] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [selectedProduto, setSelectedProduto] = useState<Produto | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
@@ -95,8 +95,8 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleViewDetails = (product: Product) => {
-    setSelectedProduct(product);
+  const handleViewDetails = (produto: Produto) => {
+    setSelectedProduto(produto);
     setModalOpen(true);
   };
 
@@ -106,7 +106,7 @@ export default function HomePage() {
       
       <main>
         <Hero
-          onBrowseProducts={() => setLocation("/products")}
+          onBrowseProdutos={() => setLocation("/produtos")}
           onRequestQuote={() => {
             const contactSection = document.getElementById("contact");
             contactSection?.scrollIntoView({ behavior: "smooth" });
@@ -115,9 +115,9 @@ export default function HomePage() {
         
         <CategorySection />
         
-        <FeaturedProducts
-          products={featuredProducts}
-          onViewAll={() => setLocation("/products")}
+        <FeaturedProdutos
+          produtos={featuredProdutos}
+          onViewAll={() => setLocation("/produtos")}
           onViewDetails={handleViewDetails}
         />
         
@@ -136,8 +136,8 @@ export default function HomePage() {
 
       <Footer />
 
-      <ProductDetailModal
-        product={selectedProduct}
+      <ProdutoDetailModal
+        produto={selectedProduto}
         open={modalOpen}
         onOpenChange={setModalOpen}
       />

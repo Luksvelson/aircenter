@@ -3,11 +3,11 @@ import { ArrowRight, Shield, Award, Truck } from "lucide-react";
 import heroImage from "@assets/generated_images/industrial_air_compressor_hero.png";
 
 interface HeroProps {
-  onBrowseProducts?: () => void;
+  onBrowseProdutos?: () => void;
   onRequestQuote?: () => void;
 }
 
-export default function Hero({ onBrowseProducts, onRequestQuote }: HeroProps) {
+export default function Hero({ onBrowseProdutos, onRequestQuote }: HeroProps) {
   return (
     <section className="relative min-h-[80vh] flex items-center" data-testid="hero-section">
       <div
@@ -30,10 +30,10 @@ export default function Hero({ onBrowseProducts, onRequestQuote }: HeroProps) {
             <Button
               size="lg"
               onClick={() => {
-                onBrowseProducts?.();
-                console.log("Browse products clicked");
+                onBrowseProdutos?.();
+                console.log("Browse produtos clicked");
               }}
-              data-testid="button-browse-products"
+              data-testid="button-browse-produtos"
             >
               Ver Produtos
               <ArrowRight className="ml-2 h-5 w-5" />

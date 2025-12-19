@@ -29,14 +29,14 @@ export default function LocationSection() {
         <div className="grid lg:grid-cols-2 gap-8">
           <div className="aspect-video lg:aspect-auto lg:min-h-[400px] bg-muted rounded-md overflow-hidden relative">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1976018139454!2d-46.6565!3d-23.5505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzAxLjgiUyA0NsKwMzknMjMuNCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.35091354582!2d-43.21936132387573!3d-22.900424179259506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997ee309408c45%3A0x56f35704ec112346!2zUi4gU8OjbyBDcmlzdMOzdsOjbywgNzkzIC0gSW1wZXJpYWwgZGUgU8OjbyBDcmlzdMOzdsOjbywgUmlvIGRlIEphbmVpcm8gLSBSSiwgMjA5NDAtMDAx!5e0!3m2!1spt-BR!2sbr!4v1765220086307!5m2!1spt-BR!2sbr"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: "300px" }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Mapa de Localização AirPro"
+              title="Mapa de Localização AirCenter"
               data-testid="map-embed"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
@@ -52,9 +52,9 @@ export default function LocationSection() {
                   <div className="flex-1">
                     <h3 className="font-semibold mb-1">Endereço</h3>
                     <p className="text-muted-foreground mb-3" data-testid="text-address">
-                      Av. Industrial, 1234<br />
-                      Distrito Industrial<br />
-                      São Paulo - SP, 04001-000
+                      Rua São Cristóvão, 793<br />
+                      São Cristóvão<br />
+                      Rio de Janeiro - RJ
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <Button
@@ -125,7 +125,7 @@ export default function LocationSection() {
                     <Phone className="h-5 w-5 text-primary" />
                     <div>
                       <p className="text-xs text-muted-foreground">Telefone</p>
-                      <p className="font-medium text-sm">(11) 3000-0000</p>
+                      <p className="font-medium text-sm">(21) 3000-0000</p>
                     </div>
                   </div>
                 </CardContent>
@@ -136,7 +136,7 @@ export default function LocationSection() {
                     <Mail className="h-5 w-5 text-primary" />
                     <div>
                       <p className="text-xs text-muted-foreground">E-mail</p>
-                      <p className="font-medium text-sm">contato@airpro.com.br</p>
+                      <p className="font-medium text-sm">contato@aircenter.com.br</p>
                     </div>
                   </div>
                 </CardContent>

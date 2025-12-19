@@ -34,10 +34,10 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4" data-testid="text-about-title">
-              Sobre a AirPro
+              Sobre a AirCenter
             </h2>
             <p className="text-muted-foreground mb-4">
-              Por quase quatro décadas, a AirPro tem sido uma parceira de confiança para empresas 
+              Por quase quatro décadas, a AirCenter tem sido uma parceira de confiança para empresas 
               que buscam soluções confiáveis em ar comprimido. O que começou como uma pequena 
               operação familiar em São Paulo cresceu para se tornar uma fornecedora líder de 
               compressores de ar industriais em todo o país.

@@ -94,7 +94,7 @@ export default function ContactSection() {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="(11) 99999-9999"
+                        placeholder="(21) 99999-9999"
                         data-testid="input-contact-phone"
                       />
                     </div>
@@ -121,7 +121,7 @@ export default function ContactSection() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="quote">Solicitar Orçamento</SelectItem>
-                        <SelectItem value="product">Informações sobre Produtos</SelectItem>
+                        <SelectItem value="produto">Informações sobre Produtos</SelectItem>
                         <SelectItem value="support">Suporte Técnico</SelectItem>
                         <SelectItem value="parts">Peças e Serviços</SelectItem>
                         <SelectItem value="other">Outros</SelectItem>
@@ -163,7 +163,7 @@ export default function ContactSection() {
                     <p className="text-muted-foreground text-sm mb-2">
                       Fale com nossa equipe de vendas
                     </p>
-                    <p className="font-medium" data-testid="text-contact-phone">(11) 3000-0000</p>
+                    <p className="font-medium" data-testid="text-contact-phone">(21) 3000-0000</p>
                   </div>
                 </div>
               </CardContent>
@@ -180,7 +180,7 @@ export default function ContactSection() {
                     <p className="text-muted-foreground text-sm mb-2">
                       Resposta em até 24 horas
                     </p>
-                    <p className="font-medium" data-testid="text-contact-email">vendas@airpro.com.br</p>
+                    <p className="font-medium" data-testid="text-contact-email">vendas@aircenter.com.br</p>
                   </div>
                 </div>
               </CardContent>
@@ -195,10 +195,10 @@ export default function ContactSection() {
                   <div>
                     <h3 className="font-semibold mb-1">Horário de Atendimento</h3>
                     <p className="text-muted-foreground text-sm">
-                      Seg - Sex: 08:00 - 18:00
+                      Seg - Sex: 08:00 às 17:30
                     </p>
                     <p className="text-muted-foreground text-sm">
-                      Sáb: 09:00 - 14:00
+                      Sáb: 08:30 às 12:30
                     </p>
                   </div>
                 </div>

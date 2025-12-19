@@ -11,20 +11,20 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const categories = [
-  { name: "Compressores a Pistão", href: "/products?type=piston" },
-  { name: "Parafuso Rotativo", href: "/products?type=rotary" },
-  { name: "Unidades Portáteis", href: "/products?type=portable" },
-  { name: "Compressores Silenciosos", href: "/products?type=silent" },
-  { name: "Alta Pressão", href: "/products?type=high-pressure" },
+  { name: "Compressores a Pistão", href: "/produtos?type=piston" },
+  { name: "Parafuso Rotativo", href: "/produtos?type=rotary" },
+  { name: "Unidades Portáteis", href: "/produtos?type=portable" },
+  { name: "Compressores Silenciosos", href: "/produtos?type=silent" },
+  { name: "Alta Pressão", href: "/produtos?type=high-pressure" },
 ];
 
 const navLinks = [
   { name: "Início", href: "/" },
-  { name: "Produtos", href: "/products" },
-  { name: "Serviços", href: "/#services" },
-  { name: "Sobre", href: "/#about" },
-  { name: "Localização", href: "/#location" },
-  { name: "Contato", href: "/#contact" },
+  { name: "Produtos", href: "/produtos" },
+  { name: "Serviços", href: "#services" },
+  { name: "Sobre", href: "#about" },
+  { name: "Localização", href: "#location" },
+  { name: "Contato", href: "#contact" },
 ];
 
 interface HeaderProps {
@@ -34,6 +34,19 @@ interface HeaderProps {
 export default function Header({ scrolled = false }: HeaderProps) {
   const [location] = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+    const scrollToSection = (hash: string) => {
+    const id = hash.replace(/^#/, "");
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Atualiza o hash da URL sem criar novo histórico (opcional)
+      history.replaceState(null, "", hash);
+    } else {
+      // fallback: se não existir elemento com o id, apenas atualiza a hash
+      history.replaceState(null, "", hash);
+    }
+  };
 
   return (
     <header
@@ -49,7 +62,7 @@ export default function Header({ scrolled = false }: HeaderProps) {
           <Link href="/" className="flex items-center gap-2" data-testid="link-logo">
             <Wind className="h-8 w-8 text-primary" />
             <span className={`font-bold text-xl ${scrolled ? "text-foreground" : "text-white"}`}>
-              AirPro
+              AirCenter
             </span>
           </Link>
 
@@ -62,8 +75,8 @@ export default function Header({ scrolled = false }: HeaderProps) {
                       variant="ghost"
                       className={`gap-1 ${
                         scrolled ? "text-foreground" : "text-white hover:bg-white/10"
-                      } ${location.startsWith("/products") ? "bg-white/10" : ""}`}
-                      data-testid="button-products-dropdown"
+                      } ${location.startsWith("/produtos") ? "bg-white/10" : ""}`}
+                      data-testid="button-produtos-dropdown"
                     >
                       Produtos
                       <ChevronDown className="h-4 w-4" />
@@ -71,7 +84,7 @@ export default function Header({ scrolled = false }: HeaderProps) {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="center" className="w-48">
                     <DropdownMenuItem asChild>
-                      <Link href="/products" data-testid="link-all-products">Todos os Produtos</Link>
+                      <Link href="/produtos" data-testid="link-all-produtos">Todos os Produtos</Link>
                     </DropdownMenuItem>
                     {categories.map((cat) => (
                       <DropdownMenuItem key={cat.name} asChild>
@@ -83,7 +96,10 @@ export default function Header({ scrolled = false }: HeaderProps) {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <Link key={link.name} href={link.href}>
+                <Link key={link.name} href={link.href} onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(link.href);
+                  }}>
                   <Button
                     variant="ghost"
                     className={`${
@@ -123,7 +139,7 @@ export default function Header({ scrolled = false }: HeaderProps) {
               <SheetContent side="right" className="w-72">
                 <nav className="flex flex-col gap-2 mt-8">
                   {navLinks.map((link) => (
-                    <Link key={link.name} href={link.href} onClick={() => setMobileOpen(false)}>
+                    <Link key={link.name} href={link.href} onClick={() => { scrollToSection(link.href); setMobileOpen(false); }}>
                       <Button
                         variant="ghost"
                         className={`w-full justify-start ${location === link.href ? "bg-accent" : ""}`}

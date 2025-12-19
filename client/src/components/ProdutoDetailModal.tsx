@@ -8,28 +8,28 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Phone, FileText, Download } from "lucide-react";
-import type { Product } from "./ProductCard";
+import type { Produto } from "./ProdutoCard";
 
-interface ProductDetailModalProps {
-  product: Product | null;
+interface ProdutoDetailModalProps {
+  produto: Produto | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-export default function ProductDetailModal({
-  product,
+export default function ProdutoDetailModal({
+  produto,
   open,
   onOpenChange,
-}: ProductDetailModalProps) {
-  if (!product) return null;
+}: ProdutoDetailModalProps) {
+  if (!produto) return null;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto" data-testid="modal-product-detail">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto" data-testid="modal-produto-detail">
         <DialogHeader>
           <div className="flex items-start gap-2 flex-wrap">
-            <DialogTitle className="text-2xl">{product.name}</DialogTitle>
-            {product.featured && <Badge>Destaque</Badge>}
+            <DialogTitle className="text-2xl">{produto.name}</DialogTitle>
+            {produto.featured && <Badge>Destaque</Badge>}
           </div>
         </DialogHeader>
 
@@ -37,10 +37,10 @@ export default function ProductDetailModal({
           <div>
             <div className="aspect-square bg-white dark:bg-muted/50 rounded-md overflow-hidden mb-4">
               <img
-                src={product.image}
-                alt={product.name}
+                src={produto.image}
+                alt={produto.name}
                 className="w-full h-full object-contain p-8"
-                data-testid="img-modal-product"
+                data-testid="img-modal-produto"
               />
             </div>
             <div className="flex gap-2">
@@ -57,12 +57,12 @@ export default function ProductDetailModal({
 
           <div>
             <p className="text-sm text-muted-foreground uppercase tracking-wide mb-1">
-              {product.category}
+              {produto.category}
             </p>
-            <p className="text-muted-foreground mb-4">Modelo: {product.model}</p>
+            <p className="text-muted-foreground mb-4">Modelo: {produto.model}</p>
 
             <p className="text-3xl font-bold text-primary mb-6" data-testid="text-modal-price">
-              R$ {product.price.toLocaleString('pt-BR')}
+              R$ {produto.price.toLocaleString('pt-BR')}
             </p>
 
             <Separator className="mb-6" />
@@ -71,19 +71,19 @@ export default function ProductDetailModal({
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div className="p-3 bg-muted/50 rounded-md">
                 <p className="text-xs text-muted-foreground uppercase">Vazão CFM</p>
-                <p className="font-semibold">{product.specs.cfm} CFM</p>
+                <p className="font-semibold">{produto.specs.cfm} CFM</p>
               </div>
               <div className="p-3 bg-muted/50 rounded-md">
                 <p className="text-xs text-muted-foreground uppercase">Pressão Máx PSI</p>
-                <p className="font-semibold">{product.specs.psi} PSI</p>
+                <p className="font-semibold">{produto.specs.psi} PSI</p>
               </div>
               <div className="p-3 bg-muted/50 rounded-md">
                 <p className="text-xs text-muted-foreground uppercase">Potência</p>
-                <p className="font-semibold">{product.specs.hp} CV</p>
+                <p className="font-semibold">{produto.specs.hp} CV</p>
               </div>
               <div className="p-3 bg-muted/50 rounded-md">
                 <p className="text-xs text-muted-foreground uppercase">Reservatório</p>
-                <p className="font-semibold">{product.specs.tank}</p>
+                <p className="font-semibold">{produto.specs.tank}</p>
               </div>
             </div>
 
@@ -100,7 +100,7 @@ export default function ProductDetailModal({
               <Button
                 className="w-full"
                 size="lg"
-                onClick={() => console.log("Request quote for:", product.name)}
+                onClick={() => console.log("Request quote for:", produto.name)}
                 data-testid="button-modal-quote"
               >
                 <Phone className="h-4 w-4 mr-2" />

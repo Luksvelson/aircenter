@@ -1,17 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import ProductGrid from "./ProductGrid";
-import type { Product } from "./ProductCard";
+import ProdutoGrid from "./ProdutoGrid";
+import type { Produto } from "./ProdutoCard";
 
-interface FeaturedProductsProps {
-  products: Product[];
+interface FeaturedProdutosProps {
+  produtos: Produto[];
   onViewAll?: () => void;
-  onViewDetails?: (product: Product) => void;
+  onViewDetails?: (produto: Produto) => void;
 }
 
-export default function FeaturedProducts({ products, onViewAll, onViewDetails }: FeaturedProductsProps) {
+export default function FeaturedProdutos({ produtos, onViewAll, onViewDetails }: FeaturedProdutosProps) {
   return (
-    <section className="py-16 md:py-24" data-testid="featured-products-section">
+    <section className="py-16 md:py-24" data-testid="featured-produtos-section">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 md:mb-12">
           <div>
@@ -26,16 +26,16 @@ export default function FeaturedProducts({ products, onViewAll, onViewDetails }:
             variant="outline"
             onClick={() => {
               onViewAll?.();
-              console.log("View all products clicked");
+              console.log("View all produtos clicked");
             }}
-            data-testid="button-view-all-products"
+            data-testid="button-view-all-produtos"
           >
             Ver Todos os Produtos
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
 
-        <ProductGrid products={products} onViewDetails={onViewDetails} />
+        <ProdutoGrid produtos={produtos} onViewDetails={onViewDetails} />
       </div>
     </section>
   );
